@@ -20,6 +20,7 @@ package io.vertx.wiki;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
+import io.vertx.wiki.database.WikiDBVerticle;
 
 /**
  * @author <a href="https://julien.ponge.org/">Julien Ponge</a>
@@ -36,7 +37,7 @@ public class MainVerticle extends AbstractVerticle {
 
       Future<String> httpVerticleDeployment = Future.future();
       vertx.deployVerticle(
-        "io.vertx.wiki.HttpServerVerticle",
+        "io.vertx.wiki.http.HttpServerVerticle",
       new DeploymentOptions().setInstances(2),
       httpVerticleDeployment.completer());
 
